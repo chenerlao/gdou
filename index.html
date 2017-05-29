@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>信计1101，感恩·有你</title>
+<!-- <link rel="shortcut icon"type="image/x-icon"href="img/logo.ico" /> -->
+
+<style type="text/css">
+@font-face {
+	font-family: digit;
+	/*src: url('digital-7_mono.ttf') format("truetype");*/
+}
+</style>
+
+<link href="css/default.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+<script type="text/javascript" src="js/play.js"></script>
+
+</head>
+
+<body>
+<audio autoplay="autoplay" loop="loop" id="autoPlayMuc">
+<!--此处应放入不同格式的文件以兼容各种浏览器-->
+	<source src="music/hedu.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+    </audio>
+<div class="pauseBtn rotate">&nbsp;</div>
+
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+			<span class="comments">/**</span><br />
+			<span class="comments">*2010—9-18,开学报告</span><br />
+			<span class="comments">*2014—6-20,毕业离开</span><br />
+			<span class="comments">*/</span><br />
+				衷心祝福<br />
+				信计1101同学们：<br />
+				叶叶层叠，好运不绝;<br />
+				米米紧粘，幸福绵绵;<br />
+				线线缠绕，快乐拥抱;<br />
+				水水相融，情意浓浓;<br />
+				粽粽连结，祝福不歇!<br />
+				端午佳节快乐!<br/>
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					岁月神偷，我们彼此认识的时光
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					节日安康！<br/>
+					<div class="signature">信计1101</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<img src="img/xinji5.jpg" style="width: 80%;height: auto;margin-top: 140px;text-align:center" alt="" />
+	<img src="img/xinji1.jpg" style="width: 80%;height: auto;margin-top: 100px;text-align:center" alt="" />
+	<img src="img/xinji4.jpg" style="width: 80%;height: auto;margin-top: 100px;text-align:center" alt="" />
+	<img src="img/xinji2.jpg" style="width: 80%;height: auto;margin-top: 100px;text-align:center" alt="" />
+</div>
+
+<script type="text/javascript">
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var together = new Date();
+together.setFullYear(2010, 9, 18);
+together.setHours(20);
+together.setMinutes(0);
+together.setSeconds(0);
+together.setMilliseconds(0);
+
+if (!document.createElement('canvas').getContext) {
+	var msg = document.createElement("div");
+	msg.id = "errorMsg";
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	document.body.appendChild(msg);
+	$("#code").css("display", "none")
+	$("#copyright").css("position", "absolute");
+	$("#copyright").css("bottom", "10px");
+	document.execCommand("stop");
+} else {
+	setTimeout(function () {
+		startHeartAnimation();
+	}, 5000);
+
+	timeElapse(together);
+	setInterval(function () {
+		timeElapse(together);
+	}, 500);
+
+	adjustCodePosition();
+	$("#code").typewriter();
+}
+</script>
+</body>
+</html>
